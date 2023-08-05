@@ -24,10 +24,10 @@ export const Modal = ({ children, onClose }) => {
       if (e.code === 'Escape') {
         onClose();
       }
-      window.addEventListener('keydown', handleCloseEscModal);
-      return () => {
-        window.removeEventListener('keydown', handleCloseEscModal);
-      };
+    };
+    window.addEventListener('keydown', handleCloseEscModal);
+    return () => {
+      window.removeEventListener('keydown', handleCloseEscModal);
     };
   }, [onClose]);
 
