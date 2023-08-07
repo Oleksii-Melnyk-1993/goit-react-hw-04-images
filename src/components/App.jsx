@@ -44,7 +44,7 @@ export const App = () => {
         const totalPages = Math.ceil(data.totalHits / 12);
         if (page === totalPages) {
           setEndCollection(true);
-          setIsLoadingMore(false);
+          setIsLoadingMore(true);
           toast.error('The end🙄');
         }
       } catch {
@@ -55,15 +55,8 @@ export const App = () => {
     };
     fetchQuery();
   }, [query, page]);
-  // openModal = (url, tags) => {
-  //   setState({ showModal: true, modalImageURL: url, tags });
-  // };
-  // closeModal = () => {
-  //   this.setState({ showModal: false, modalImageURL: '', tags: '' });
-  // };
 
-  //
-  const showLoadMoreBtn = images.length > 0 && !endCollection && !isLoadingMore;
+  const showLoadMoreBtn = images.length > 0 && !endCollection;
   const hideGallery = images.length > 0;
   return (
     <div className={css.app}>
